@@ -1,5 +1,9 @@
 <template>
-  <Disclosure as="nav" class="relative border-b border-black/10 bg-white" v-slot="{ open }">
+  <Disclosure
+    as="nav"
+    class="relative border-b border-black/10 bg-white"
+    v-slot="{ open }"
+  >
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="relative flex h-16 items-center sm:hidden">
         <DisclosureButton
@@ -31,7 +35,10 @@
             {{ brand }}
           </button>
         </div>
-        <nav class="flex items-center justify-center gap-8 font-sans lg:gap-12" aria-label="Principal">
+        <nav
+          class="flex items-center justify-center gap-8 font-sans lg:gap-12"
+          aria-label="Principal"
+        >
           <button
             v-for="link in links"
             :key="link.to"
@@ -90,22 +97,18 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
 import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline";
 
 const props = defineProps({
-  /** Texte marque (logo). */
   brand: {
     type: String,
     default: "L'ESSENCE",
   },
-  /** Liens centrés : `{ label, to }` (chemins logiques, sans fetch). */
   links: {
     type: Array,
     required: true,
   },
-  /** Chemin actif pour le soulignement (ex. route.path). */
   activePath: {
     type: String,
     default: "",
   },
-  /** Libellé du bouton droit (ex. Réserver / Connexion). */
   ctaLabel: {
     type: String,
     default: "Réserver",
